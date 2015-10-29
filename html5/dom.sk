@@ -491,7 +491,7 @@ if TARGET == .JAVASCRIPT {
     }
 
     # Wrap these calls in a level of indirection to reduce generated code size
-    @noinline {
+    @neverinline {
       def on(target dynamic, type string, listener dynamic) {
         target.addEventListener(type, listener)
       }
