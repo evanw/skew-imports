@@ -117,6 +117,12 @@ if TARGET == .JAVASCRIPT {
       def getImageData(sx int, sy int, sw int, sh int) ImageData
       def putImageData(imagedata ImageData, dx int, dy int, dirtyX int, dirtyY int, dirtyWidth int, dirtyHeight int)
       def putImageData(imagedata ImageData, dx int, dy int)
+
+      # smoothing
+      var webkitImageSmoothingEnabled bool
+      var mozImageSmoothingEnabled bool
+      var msImageSmoothingEnabled bool
+      var imageSmoothingEnabled bool
     }
 
     class CanvasGradient {
