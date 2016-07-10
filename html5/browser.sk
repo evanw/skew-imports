@@ -1,8 +1,8 @@
 if TARGET == .JAVASCRIPT {
-  @import {
-    var window HTMLWindow
-    var document HTMLDocument
+  var window HTMLWindow = dynamic.this.window
+  var document HTMLDocument = dynamic.this.document
 
+  @import {
     var innerWidth int
     var innerHeight int
     var devicePixelRatio double
