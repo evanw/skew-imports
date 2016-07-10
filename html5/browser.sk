@@ -1,21 +1,20 @@
 if TARGET == .JAVASCRIPT {
   @import {
-    const window HTMLWindow
-    const document HTMLDocument
+    var window HTMLWindow
+    var document HTMLDocument
 
-    def requestAnimationFrame(callback fn())
+    var innerWidth int
+    var innerHeight int
+    var devicePixelRatio double
+    var performance HTMLPerformance
 
-    type Timeout = int
-    def setTimeout(callback fn(), milliseconds int) Timeout
-    def clearTimeout(timeout Timeout)
+    type AnimationFrame = int
+    def requestAnimationFrame(callback fn()) AnimationFrame
+    def cancelAnimationFrame(frame AnimationFrame)
 
-    type Interval = int
-    def setInterval(callback fn(), milliseconds int) Interval
-    def clearInterval(interval Interval)
-
-    class Error {
-      def new(message string)
-    }
+    def alert(message string)
+    def confirm(message string) bool
+    def prompt(message string, defaultValue string) string
 
     class FormData {
       def append(name string, value string)
@@ -94,11 +93,6 @@ if TARGET == .JAVASCRIPT {
     }
 
     class HTMLWindow {
-      const innerWidth int
-      const innerHeight int
-      const devicePixelRatio double
-      const performance HTMLPerformance
-
       def addEventListener(type string, listener fn()) { HTML.on(self, type, listener) }
       def addEventListener(type string, listener fn(HTMLEvent)) { HTML.on(self, type, listener) }
       def removeEventListener(type string, listener fn()) { HTML.off(self, type, listener) }
